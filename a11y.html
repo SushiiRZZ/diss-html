@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barrierefreiheit (Accessibility) – WebLernen</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Barrierefreiheit (Accessibility)</h1>
+    <nav>
+      <a href="index.html">Startseite</a>
+      <a href="html-ref.html">HTML-Referenz</a>
+      <a href="css-ref.html">CSS-Referenz</a>
+      <a href="js-ref.html">JavaScript-Referenz</a>
+      <a href="frameworks.html">Frameworks</a>
+      <a href="tools.html">Tools & Workflows</a>
+      <a href="best-practices.html">Best Practices</a>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Was bedeutet Barrierefreiheit?</h2>
+      <p>Barrierefreiheit (Accessibility, kurz: a11y) bedeutet, dass Websites für alle Menschen nutzbar sind – auch für Menschen mit Behinderungen. Dazu gehören z.B. blinde Nutzer, Menschen mit motorischen Einschränkungen oder Farbenblindheit.</p>
+    </section>
+    <section>
+      <h2>Tipps für barrierefreies Webdesign</h2>
+      <ul>
+        <li>Verwende ausreichende Farbkontraste</li>
+        <li>Alle Funktionen müssen per Tastatur erreichbar sein</li>
+        <li>Verwende semantisches HTML (z.B. &lt;nav&gt;, &lt;main&gt;, &lt;header&gt;)</li>
+        <li>Beschrifte Formularelemente korrekt</li>
+        <li>Nutze <b>alt</b>-Attribute für Bilder</li>
+        <li>Verwende ARIA-Attribute, wo nötig</li>
+        <li>Teste mit Screenreadern</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Beispiel: Barrierefreies Formular</h2>
+      <pre><code>&lt;label for="email"&gt;E-Mail:&lt;/label&gt;
+&lt;input id="email" type="email" name="email" required aria-required="true"&gt;
+</code></pre>
+    </section>
+    <section>
+      <h2>Weiterführende Links</h2>
+      <ul>
+        <li><a href="https://www.w3.org/WAI/test-evaluate/" target="_blank">W3C: Testen & Evaluieren</a></li>
+        <li><a href="https://www.barrierefreies-webdesign.de/knowhow/gesetze.html" target="_blank">Barrierefreies Webdesign (deutsch)</a></li>
+        <li><a href="https://www.a11yproject.com/" target="_blank">The A11Y Project</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>© 2024 WebLernen</p>
+  </footer>
+</body>
+</html> 

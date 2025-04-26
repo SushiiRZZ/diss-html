@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login – WebLernen</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .login-form { max-width: 400px; margin: 2.5rem auto; background: var(--surface); padding: 2rem; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .login-form label { display: block; margin-bottom: 0.5em; color: var(--primary-light); }
+    .login-form input[type="text"], .login-form input[type="password"] { width: 100%; padding: 0.7em; margin-bottom: 1.2em; border-radius: 6px; border: 1px solid var(--border); background: #23283a; color: var(--text); }
+    .login-form .btn { width: 100%; }
+    .login-form .error { color: #ff6b6b; margin-bottom: 1em; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Login</h1>
+    <nav>
+      <a href="index.html">Startseite</a>
+      <a href="register.html">Registrieren</a>
+    </nav>
+  </header>
+  <main>
+    <form class="login-form" id="loginForm" autocomplete="off">
+      <div class="error" id="loginError"></div>
+      <label for="loginName">Nutzername</label>
+      <input type="text" id="loginName" required maxlength="20">
+      <label for="loginPass">Passwort</label>
+      <input type="password" id="loginPass" required minlength="4">
+      <button type="submit" class="btn">Login</button>
+    </form>
+  </main>
+  <footer>
+    <p>© 2024 WebLernen</p>
+  </footer>
+  <script>
+    document.getElementById('loginForm').onsubmit = function(e) {
+      e.preventDefault();
+      const name = document.getElementById('loginName').value.trim();
+      const pass = document.getElementById('loginPass').value;
+      const error = document.getElementById('loginError');
+      error.textContent = '';
+      fetch('http://localhost:3000/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, pass })
+      })
+      .then(async r => {
+        const data = await r.json();
+        if (!r.ok) {
+          error.textContent = data.error || 'Fehler beim Login.';
+          return;
+        }
+        // Profil im LocalStorage speichern (für Anzeige)
+        localStorage.setItem('logged_in', data.name);
+        localStorage.setItem('user_' + data.name, JSON.stringify({ name: data.name, img: data.img }));
+        window.location.href = 'index.html';
+      })
+      .catch(() => error.textContent = 'Server nicht erreichbar.');
+    };
+  </script>
+</body>
+</html> 

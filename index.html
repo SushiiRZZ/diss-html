@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webentwicklung lernen – Das große Nachschlagewerk</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="loader-bg" id="loader-bg"><div class="loader" id="loader"></div></div>
+  <div id="content" style="display:none;">
+    <div id="profileBox" style="position:fixed;top:1.2rem;right:2rem;z-index:100;display:none;align-items:center;gap:0.7em;">
+      <img id="profileImg" src="" alt="Profilbild" style="width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid var(--primary);background:#23283a;">
+      <span id="profileName" style="color:var(--primary-light);font-weight:600;"></span>
+      <button id="logoutBtn" class="btn" style="padding:0.3em 1em;font-size:0.95rem;">Logout</button>
+    </div>
+    <div id="authLinks" style="position:fixed;top:1.2rem;right:2rem;z-index:100;display:none;gap:0.7em;">
+      <a href="login.html" class="btn" style="padding:0.3em 1em;font-size:0.95rem;">Login</a>
+      <a href="register.html" class="btn" style="padding:0.3em 1em;font-size:0.95rem;background:var(--accent);color:var(--surface);">Registrieren</a>
+    </div>
+    <header>
+      <h1>Webentwicklung lernen</h1>
+      <nav>
+        <a href="html-ref.html">HTML-Referenz</a>
+        <a href="css-ref.html">CSS-Referenz</a>
+        <a href="js-ref.html">JavaScript-Referenz</a>
+        <a href="frameworks.html">Frameworks</a>
+        <a href="tools.html">Tools & Workflows</a>
+        <a href="best-practices.html">Best Practices</a>
+        <a href="a11y.html">Barrierefreiheit</a>
+      </nav>
+    </header>
+    <main class="fade-in page-transition" id="main-content">
+      <section class="intro">
+        <h2>Willkommen zum großen Web-Nachschlagewerk!</h2>
+        <p>Hier findest du eine umfassende Übersicht über alle wichtigen HTML-Tags, CSS-Eigenschaften und JavaScript-Befehle, die du für moderne Websites brauchst. Perfekt zum Lernen und Nachschlagen!</p>
+        <ul>
+          <li><a href="html-ref.html">HTML: Alle Tags, Attribute & Beispiele</a></li>
+          <li><a href="css-ref.html">CSS: Alle Eigenschaften, Selektoren & Beispiele</a></li>
+          <li><a href="js-ref.html">JavaScript: Syntax, Methoden, Events & Beispiele</a></li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <p>© 2024 WebLernen. Umfangreiche Referenz für Webentwicklung.</p>
+    </footer>
+  </div>
+  <script>
+    // Ladeanimation: Zeige Content nach kurzer Zeit
+    window.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        document.getElementById('loader-bg').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+        // Profilanzeige prüfen
+        const logged = localStorage.getItem('logged_in');
+        if (logged) {
+          const user = JSON.parse(localStorage.getItem('user_' + logged) || '{}');
+          document.getElementById('profileBox').style.display = 'flex';
+          document.getElementById('authLinks').style.display = 'none';
+          document.getElementById('profileName').textContent = user.name || '';
+          document.getElementById('profileImg').src = user.img || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(user.name || 'U') + '&background=4f8cff&color=fff&rounded=true&size=64';
+        } else {
+          document.getElementById('authLinks').style.display = 'flex';
+          document.getElementById('profileBox').style.display = 'none';
+        }
+      }, 900);
+    });
+
+    // Seitenwechsel-Animation für Navigation
+    document.querySelectorAll('nav a').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        const href = link.getAttribute('href');
+        if (href && !href.startsWith('#') && !link.hasAttribute('target')) {
+          e.preventDefault();
+          const main = document.getElementById('main-content');
+          main.classList.remove('page-transition');
+          main.classList.add('page-fadeout');
+          setTimeout(function() {
+            window.location.href = href;
+          }, 400);
+        }
+      });
+    });
+
+    // Logout-Button
+    document.getElementById('logoutBtn').onclick = function() {
+      localStorage.removeItem('logged_in');
+      window.location.reload();
+    };
+  </script>
+</body>
+</html> 

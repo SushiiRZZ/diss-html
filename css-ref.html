@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS-Referenz – WebLernen</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>CSS-Referenz</h1>
+    <nav>
+      <a href="index.html">Startseite</a>
+      <a href="html-ref.html">HTML-Referenz</a>
+      <a href="js-ref.html">JavaScript-Referenz</a>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Inhaltsverzeichnis</h2>
+      <ul>
+        <li><a href="#eigenschaften">Wichtige Eigenschaften</a></li>
+        <li><a href="#selektoren">Selektoren</a></li>
+        <li><a href="#beispiele">Beispiele</a></li>
+        <li><a href="#links">Weiterführende Links</a></li>
+      </ul>
+    </section>
+    <section id="eigenschaften">
+      <h2>Wichtige CSS-Eigenschaften</h2>
+      <ul>
+        <li><b>color</b> – Textfarbe</li>
+        <li><b>background</b> / <b>background-color</b> – Hintergrundfarbe</li>
+        <li><b>font-size</b> – Schriftgröße</li>
+        <li><b>font-family</b> – Schriftart</li>
+        <li><b>margin</b> – Außenabstand</li>
+        <li><b>padding</b> – Innenabstand</li>
+        <li><b>border</b> – Rahmen</li>
+        <li><b>width</b>, <b>height</b> – Breite, Höhe</li>
+        <li><b>display</b> – Anzeigeart (block, inline, flex, grid, ...)</li>
+        <li><b>position</b> – Positionierung</li>
+        <li><b>top</b>, <b>left</b>, <b>right</b>, <b>bottom</b> – Position</li>
+        <li><b>z-index</b> – Stapelreihenfolge</li>
+        <li><b>overflow</b> – Überlaufverhalten</li>
+        <li><b>box-shadow</b> – Schatten</li>
+        <li><b>border-radius</b> – Abgerundete Ecken</li>
+        <li><b>transition</b> – Übergänge</li>
+        <li><b>animation</b> – Animationen</li>
+        <li><b>flex</b>, <b>grid</b> – Layoutsysteme</li>
+      </ul>
+    </section>
+    <section id="selektoren">
+      <h2>Wichtige Selektoren</h2>
+      <ul>
+        <li><b>*</b> – Alle Elemente</li>
+        <li><b>element</b> – Alle Elemente dieses Typs (z.B. body, h1)</li>
+        <li><b>.klasse</b> – Alle Elemente mit dieser Klasse</li>
+        <li><b>#id</b> – Das Element mit dieser ID</li>
+        <li><b>element, element</b> – Mehrere Elemente</li>
+        <li><b>element element</b> – Nachfahrenselektor</li>
+        <li><b>element > element</b> – Kindselektor</li>
+        <li><b>element + element</b> – Direkt folgendes Element</li>
+        <li><b>[attribut]</b> – Mit bestimmtem Attribut</li>
+        <li><b>:hover</b>, <b>:active</b>, <b>:focus</b> – Pseudoklassen</li>
+      </ul>
+    </section>
+    <section id="beispiele">
+      <h2>Beispiele</h2>
+      <h3>Textfarbe und Hintergrund</h3>
+      <pre><code>body {
+  color: #f1f1f1;
+  background: #181a1b;
+}
+</code></pre>
+      <h3>Flexbox-Layout</h3>
+      <pre><code>.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}</code></pre>
+      <h3>Hover-Effekt</h3>
+      <pre><code>a:hover {
+  color: #61dafb;
+}</code></pre>
+    </section>
+    <section id="links">
+      <h2>Weiterführende Links</h2>
+      <ul>
+        <li><a href="https://developer.mozilla.org/de/docs/Web/CSS" target="_blank">MDN Web Docs: CSS</a></li>
+        <li><a href="https://www.w3schools.com/css/" target="_blank">W3Schools CSS Tutorial</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>© 2024 WebLernen</p>
+  </footer>
+</body>
+</html> 

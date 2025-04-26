@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrieren – WebLernen</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .register-form { max-width: 400px; margin: 2.5rem auto; background: var(--surface); padding: 2rem; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .register-form label { display: block; margin-bottom: 0.5em; color: var(--primary-light); }
+    .register-form input[type="text"], .register-form input[type="password"] { width: 100%; padding: 0.7em; margin-bottom: 1.2em; border-radius: 6px; border: 1px solid var(--border); background: #23283a; color: var(--text); }
+    .register-form input[type="file"] { margin-bottom: 1.2em; }
+    .register-form .btn { width: 100%; }
+    .register-form .error { color: #ff6b6b; margin-bottom: 1em; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Registrieren</h1>
+    <nav>
+      <a href="index.html">Startseite</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+  <main>
+    <form class="register-form" id="registerForm" autocomplete="off">
+      <div class="error" id="regError"></div>
+      <label for="regName">Nutzername</label>
+      <input type="text" id="regName" required maxlength="20">
+      <label for="regPass">Passwort</label>
+      <input type="password" id="regPass" required minlength="4">
+      <label for="regImg">Profilbild (optional)</label>
+      <input type="file" id="regImg" accept="image/*">
+      <button type="submit" class="btn">Registrieren</button>
+    </form>
+  </main>
+  <footer>
+    <p>© 2024 WebLernen</p>
+  </footer>
+  <script>
+    document.getElementById('registerForm').onsubmit = async function(e) {
+      e.preventDefault();
+      const name = document.getElementById('regName').value.trim();
+      const pass = document.getElementById('regPass').value;
+      const imgInput = document.getElementById('regImg');
+      const error = document.getElementById('regError');
+      error.textContent = '';
+      let imgData = '';
+      if (imgInput.files[0]) {
+        imgData = await new Promise(res => {
+          const reader = new FileReader();
+          reader.onload = e => res(e.target.result);
+          reader.readAsDataURL(imgInput.files[0]);
+        });
+      }
+      fetch('http://localhost:3000/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, pass, img: imgData })
+      })
+      .then(async r => {
+        if (!r.ok) {
+          const data = await r.json();
+          error.textContent = data.error || 'Fehler bei der Registrierung.';
+          return;
+        }
+        window.location.href = 'login.html';
+      })
+      .catch(() => error.textContent = 'Server nicht erreichbar.');
+    };
+  </script>
+</body>
+</html> 

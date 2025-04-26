@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript-Referenz – WebLernen</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>JavaScript-Referenz</h1>
+    <nav>
+      <a href="index.html">Startseite</a>
+      <a href="html-ref.html">HTML-Referenz</a>
+      <a href="css-ref.html">CSS-Referenz</a>
+    </nav>
+  </header>
+  <main>
+    <section>
+      <h2>Inhaltsverzeichnis</h2>
+      <ul>
+        <li><a href="#syntax">Grundsyntax</a></li>
+        <li><a href="#methoden">Wichtige Methoden</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#beispiele">Beispiele</a></li>
+        <li><a href="#links">Weiterführende Links</a></li>
+      </ul>
+    </section>
+    <section id="syntax">
+      <h2>Grundsyntax</h2>
+      <ul>
+        <li><b>Variablen:</b> <code>let</code>, <code>const</code>, <code>var</code></li>
+        <li><b>Funktionen:</b> <code>function name() { ... }</code></li>
+        <li><b>Bedingungen:</b> <code>if</code>, <code>else</code>, <code>switch</code></li>
+        <li><b>Schleifen:</b> <code>for</code>, <code>while</code>, <code>forEach</code></li>
+        <li><b>Objekte & Arrays:</b> <code>{ ... }</code>, <code>[ ... ]</code></li>
+        <li><b>Kommentare:</b> <code>// einzeilig</code>, <code>/* mehrzeilig */</code></li>
+      </ul>
+    </section>
+    <section id="methoden">
+      <h2>Wichtige Methoden & Objekte</h2>
+      <ul>
+        <li><b>console.log()</b> – Ausgabe in die Konsole</li>
+        <li><b>document.getElementById()</b>, <b>querySelector()</b> – Elemente auswählen</li>
+        <li><b>addEventListener()</b> – Event-Handler hinzufügen</li>
+        <li><b>setTimeout()</b>, <b>setInterval()</b> – Timer</li>
+        <li><b>Math</b> – Mathematische Funktionen</li>
+        <li><b>Array-Methoden:</b> <code>push</code>, <code>pop</code>, <code>map</code>, <code>filter</code>, <code>reduce</code></li>
+        <li><b>String-Methoden:</b> <code>length</code>, <code>toUpperCase</code>, <code>split</code></li>
+      </ul>
+    </section>
+    <section id="events">
+      <h2>Wichtige Events</h2>
+      <ul>
+        <li><b>click</b> – Klick auf ein Element</li>
+        <li><b>input</b> – Eingabe in ein Feld</li>
+        <li><b>submit</b> – Formular absenden</li>
+        <li><b>mouseover</b> – Maus über ein Element</li>
+        <li><b>keydown</b> – Taste gedrückt</li>
+        <li><b>DOMContentLoaded</b> – Seite geladen</li>
+      </ul>
+    </section>
+    <section id="beispiele">
+      <h2>Beispiele</h2>
+      <h3>Einfaches Event</h3>
+      <pre><code>document.querySelector('button').addEventListener('click', function() {
+  alert('Button wurde geklickt!');
+});
+</code></pre>
+      <h3>Array filtern</h3>
+      <pre><code>const zahlen = [1, 2, 3, 4, 5];
+const gerade = zahlen.filter(n => n % 2 === 0);
+console.log(gerade); // [2, 4]
+</code></pre>
+    </section>
+    <section id="links">
+      <h2>Weiterführende Links</h2>
+      <ul>
+        <li><a href="https://developer.mozilla.org/de/docs/Web/JavaScript" target="_blank">MDN Web Docs: JavaScript</a></li>
+        <li><a href="https://www.w3schools.com/js/" target="_blank">W3Schools JavaScript Tutorial</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>© 2024 WebLernen</p>
+  </footer>
+</body>
+</html> 
